@@ -1,0 +1,379 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Login page entrance */
+.login-container {
+    animation: loginAppear 0.8s ease-out;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.login-container:hover {
+    box-shadow: 0 12px 30px #173b7030;
+}
+
+@keyframes loginAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Dashboard entrance */
+#dashboardPage > header {
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dashboard cards */
+.card {
+    animation: fadeUp 0.6s ease both;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px #173b7020;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Panels */
+.panel {
+    animation: fadeUp 0.7s ease both;
+    transition: box-shadow 0.3s ease;
+}
+
+.panel:hover {
+    box-shadow: 0 7px 20px #00000012;
+}
+
+/* Buttons */
+button {
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: scale(1.04);
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.96);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Input focus */
+input {
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #176bce;
+    box-shadow: 0 0 0 3px #176bce20;
+}
+
+/* Book rows */
+#bookList tr {
+    animation: rowAppear 0.35s ease both;
+    transition: background 0.2s ease;
+}
+
+#bookList tr:hover {
+    background: #edf4ff;
+}
+
+@keyframes rowAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f5fa;
+    color: #263238;
+}
+
+header {
+    background: #0351c7;
+    color: white;
+    text-align: center;
+    padding: 25px 12px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+header p {
+    margin: 0;
+}
+
+main {
+    width: 92%;
+    max-width: 1100px;
+    margin: 25px auto;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.card, .panel {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #00000010;
+}
+
+.card {
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #526579;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #173b70;
+    margin-bottom: 0;
+}
+
+.panel {
+    margin-bottom: 22px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button {
+    background: #176b45;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.delete-btn {
+    background: #c62828;
+}
+
+.issue-btn {
+    background: #2459a9;
+}
+
+.return-btn {
+    background: #8a5a00;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #e7edf6;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #526579;
+}
+.login-container {
+    width: 90%;
+    max-width: 380px;
+    margin: 100px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px #00000020;
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #173b70;
+    font-size: 25px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #173b70;
+}
+
+#loginMessage {
+    color: #c62828;
+}
+
+#logoutBtn {
+    background: #c62828;
+}
+
+.animate-dashboard .card {
+    animation: fadeUp 0.6s ease both;
+}
+
+.animate-dashboard .panel {
+    animation: fadeUp 0.7s ease both;
+}
+
+/* Forms and dropdowns */
+#memberForm,
+#bookForm,
+#issueForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#memberForm input,
+#bookForm input,
+#issueForm input,
+#issueForm select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    background: white;
+}
+
+#issueForm label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#memberForm button,
+#bookForm button,
+#issueForm button {
+    align-self: flex-start;
+    margin: 5px 0;
+}
+
+#issueMessage {
+    color: #176b45;
+    font-weight: bold;
+}
+
+#issueList tr,
+#memberList tr {
+    animation: fadeUp 0.35s ease;
+}
+
+#issueList button,
+#bookList button {
+    white-space: nowrap;
+}
+
+@media (max-width: 650px) {
+    th, td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    #memberForm button,
+    #bookForm button,
+    #issueForm button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        width: 95%;
+    }
+}

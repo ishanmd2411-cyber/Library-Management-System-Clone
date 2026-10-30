@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Admin Login -->
+    <div id="loginPage" class="login-container">
+        <h1>📚 Library Login</h1>
+        <form id="loginForm">
+            <input id="loginId" placeholder="Login ID" required>
+            <input id="loginPassword" type="password"
+                   placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p id="loginMessage"></p>
+        </form>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboardPage" hidden>
+        <header>
+            <h1>📚 Library Management System</h1>
+            <p>Manage books, members, and book issues</p>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <main>
+            <section class="dashboard">
+                <div class="card">
+                    <h3>Total Copies</h3>
+                    <p id="totalBooks">0</p>
+                </div>
+                <div class="card">
+                    <h3>Available Copies</h3>
+                    <p id="availableBooks">0</p>
+                </div>
+                <div class="card">
+                    <h3>Books Issued</h3>
+                    <p id="issuedBooks">0</p>
+                </div>
+                <div class="card">
+                    <h3>Total Members</h3>
+                    <p id="totalMembers">0</p>
+                </div>
+            </section>
+
+            <!-- Register Member -->
+            <section class="panel">
+                <h2>Register Library Member</h2>
+                <form id="memberForm">
+                    <input id="memberName"
+                           placeholder="Student / Member Name" required>
+                    <input id="memberEmail" type="email"
+                           placeholder="Email Address" required>
+                    <button type="submit">Register Member</button>
+                </form>
+            </section>
+
+            <!-- Add Book -->
+            <section class="panel">
+                <h2>Add a Book</h2>
+                <form id="bookForm">
+                    <input id="title" placeholder="Book Title" required>
+                    <input id="author" placeholder="Author Name" required>
+                    <input id="quantity" type="number"
+                           placeholder="Quantity" min="1" step="1" required>
+                    <button type="submit">Add Book</button>
+                </form>
+            </section>
+
+            <!-- Issue Book -->
+            <section class="panel">
+                <h2>Issue a Book to a Member</h2>
+                <form id="issueForm">
+                    <label for="issueMember">Select Member</label>
+                    <select id="issueMember" required>
+                        <option value="">Choose a member</option>
+                    </select>
+
+                    <label for="issueBook">Select Book</label>
+                    <select id="issueBook" required>
+                        <option value="">Choose an available book</option>
+                    </select>
+
+                    <label for="issueDate">Issue Date</label>
+                    <input id="issueDate" type="date" required>
+
+                    <label for="dueDate">Due Date</label>
+                    <input id="dueDate" type="date" required>
+
+                    <button type="submit">Issue Book</button>
+                </form>
+                <p id="issueMessage" role="status"></p>
+            </section>
+
+            <!-- Book Inventory -->
+            <section class="panel">
+                <h2>Book Inventory</h2>
+                <input id="search"
+                       placeholder="Search by title or author">
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Book</th>
+                                <th>Author</th>
+                                <th>Total</th>
+                                <th>Available</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookList"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Members -->
+            <section class="panel">
+                <h2>Registered Members</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Member ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Currently Issued</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberList"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Issue History -->
+            <section class="panel">
+                <h2>Book Issue & Return Records</h2>
+                <button id="clearHistoryBtn" class="delete-btn">
+                Clear History
+                </button>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Issue ID</th>
+                                <th>Member</th>
+                                <th>Book</th>
+                                <th>Issue Date</th>
+                                <th>Due Date</th>
+                                <th>Return Date</th>
+                                <th>Status / Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="issueList"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
